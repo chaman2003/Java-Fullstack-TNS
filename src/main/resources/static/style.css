@@ -1,0 +1,900 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+    animation: backgroundShift 15s ease infinite;
+}
+
+@keyframes backgroundShift {
+    0%, 100% {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    50% {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ==================== HEADER ANIMATIONS ==================== */
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    animation: slideDown 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2), 0 0 10px rgba(255,255,255,0);
+    }
+    50% {
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.5);
+    }
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 0.95;
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== ENTITY SELECTOR ANIMATIONS ==================== */
+.entity-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-bottom: 35px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    animation: slideUp 0.8s ease 0.2s both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-entity {
+    padding: 14px 20px;
+    background: white;
+    border: 2px solid transparent;
+    color: #667eea;
+    font-size: 0.95em;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    animation: buttonFadeIn 0.6s ease backwards;
+}
+
+.btn-entity:nth-child(1) { animation-delay: 0.3s; }
+.btn-entity:nth-child(2) { animation-delay: 0.35s; }
+.btn-entity:nth-child(3) { animation-delay: 0.4s; }
+.btn-entity:nth-child(4) { animation-delay: 0.45s; }
+.btn-entity:nth-child(5) { animation-delay: 0.5s; }
+.btn-entity:nth-child(6) { animation-delay: 0.55s; }
+
+@keyframes buttonFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.btn-entity:hover {
+    background: #f0f0f0;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    animation: buttonHover 0.6s ease infinite;
+}
+
+@keyframes buttonHover {
+    0%, 100% {
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+    50% {
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+}
+
+.btn-entity.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    animation: activeButtonPulse 0.6s ease;
+}
+
+@keyframes activeButtonPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.8);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+}
+
+/* ==================== CONTENT GRID ANIMATIONS ==================== */
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+    animation: contentSlideIn 0.8s ease 0.4s both;
+}
+
+@keyframes contentSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== FORM & TABLE SECTIONS ==================== */
+.form-section, .table-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    animation: cardFadeIn 0.8s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-section::before, .table-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.form-section:nth-child(1) {
+    animation: cardFadeIn 0.8s ease 0.5s both;
+}
+
+.table-section {
+    animation: cardFadeIn 0.8s ease 0.6s both;
+}
+
+/* ==================== SECTION HEADERS ==================== */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: sectionHeaderSlide 0.6s ease;
+}
+
+@keyframes sectionHeaderSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+h2 {
+    color: #667eea;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    animation: headingWave 0.8s ease-in-out;
+}
+
+@keyframes headingWave {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==================== FORM ELEMENTS ==================== */
+.form-group {
+    margin-bottom: 18px;
+    animation: formGroupSlide 0.5s ease backwards;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes formGroupSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95em;
+    animation: labelFade 0.6s ease;
+}
+
+@keyframes labelFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+input, select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    animation: inputSlideIn 0.5s ease;
+}
+
+@keyframes inputSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 0 8px rgba(102, 126, 234, 0.4);
+    background: #f9fafb;
+    transform: translateY(-2px);
+}
+
+input:hover, select:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+/* ==================== BUTTON ANIMATIONS ==================== */
+.btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before, .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:active::before, .btn-secondary:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+    animation: primaryButtonSlide 0.6s ease 0.7s both;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+}
+
+@keyframes primaryButtonSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #218838 0%, #1aa179 100%);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.35);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 18px;
+    font-size: 0.9em;
+    animation: secondaryButtonFade 0.6s ease 0.5s both;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+@keyframes secondaryButtonFade {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%);
+    color: white;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+    animation: deleteButtonFade 0.5s ease backwards;
+}
+
+@keyframes deleteButtonFade {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.btn-delete:hover {
+    background: linear-gradient(135deg, #c82333 0%, #ff5252 100%);
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.4);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* ==================== RECORDS DISPLAY ==================== */
+.records-container {
+    max-height: 550px;
+    overflow-y: auto;
+    padding-right: 10px;
+    animation: recordsContainerFade 0.8s ease 0.7s both;
+}
+
+@keyframes recordsContainerFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.records-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.records-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.records-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    animation: scrollThumbGlow 2s ease infinite;
+}
+
+@keyframes scrollThumbGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.6);
+    }
+}
+
+.records-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #764ba2 0%, #667eea 100%);
+}
+
+.record-item {
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+    border-left: 4px solid #667eea;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: recordItemSlide 0.5s ease backwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.record-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: right 0.6s ease;
+}
+
+.record-item:hover::after {
+    right: 100%;
+}
+
+@keyframes recordItemSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.record-item:hover {
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border-left-color: #764ba2;
+    transform: translateX(5px);
+}
+
+.record-item p {
+    margin: 6px 0;
+    color: #333;
+    font-size: 0.95em;
+    animation: recordTextFade 0.6s ease;
+}
+
+@keyframes recordTextFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.record-item strong {
+    color: #667eea;
+    font-weight: 600;
+    animation: strongTextGlow 1s ease;
+}
+
+@keyframes strongTextGlow {
+    0% {
+        opacity: 0;
+        color: #999;
+    }
+    100% {
+        opacity: 1;
+        color: #667eea;
+    }
+}
+
+.loading {
+    text-align: center;
+    color: #999;
+    padding: 40px 20px;
+    font-style: italic;
+    animation: loadingPulse 1.5s ease infinite;
+}
+
+@keyframes loadingPulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+/* ==================== MESSAGE ANIMATIONS ==================== */
+.message {
+    padding: 15px 20px;
+    margin-top: 25px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+    animation: messageSlideIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: messageShimmer 1.5s infinite;
+}
+
+@keyframes messageShimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.message.success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border: 2px solid #c3e6cb;
+    display: block;
+    box-shadow: 0 8px 16px rgba(21, 87, 36, 0.15);
+}
+
+.message.error {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+    display: block;
+    box-shadow: 0 8px 16px rgba(114, 28, 36, 0.15);
+}
+
+/* ==================== INFO BOX ==================== */
+.info-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 4px solid #2196F3;
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin-top: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    animation: infoBoxSlide 0.8s ease 0.8s both;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes infoBoxSlide {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, #2196F3 0%, #00bcd4 100%);
+    animation: infoBorderGrow 0.8s ease 0.8s;
+}
+
+@keyframes infoBorderGrow {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+    }
+}
+
+.info-box p {
+    color: #333;
+    font-size: 0.95em;
+    margin: 0;
+    animation: infoTextFade 0.8s ease 1s both;
+}
+
+@keyframes infoTextFade {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.info-box p:hover {
+    animation: infoHover 0.6s ease infinite;
+}
+
+@keyframes infoHover {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(3px);
+    }
+}
+
+/* ==================== EDIT MODAL ==================== */
+.edit-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+}
+
+.edit-modal[style*="display: flex"] {
+    display: flex !important;
+    animation: fadeIn 0.3s ease;
+}
+
+.edit-form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: slideUp 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    position: relative;
+}
+
+.edit-form-container h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.edit-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.edit-form-container .form-group label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.edit-form-container .form-group input {
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+}
+
+.edit-form-container .form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    color: white;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+    animation: deleteButtonFade 0.5s ease backwards;
+}
+
+.btn-edit:hover {
+    background: linear-gradient(135deg, #138496 0%, #0c5460 100%);
+    box-shadow: 0 3px 8px rgba(23, 162, 184, 0.4);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.btn-delete-action {
+    background: linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%);
+    color: white;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+    animation: deleteButtonFade 0.5s ease backwards;
+}
+
+.btn-delete-action:hover {
+    background: linear-gradient(135deg, #c82333 0%, #ff5252 100%);
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.4);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* ==================== RESPONSIVE EDIT MODAL ==================== */
+@media (max-width: 768px) {
+    .edit-form-container {
+        max-width: 95%;
+        max-height: 90vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .edit-form-container {
+        padding: 20px;
+    }
+
+    .edit-form-container h3 {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+}
+
+

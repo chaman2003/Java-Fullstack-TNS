@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Management System - CRUD Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎓 Placement Management System</h1>
+            <p>Complete CRUD Operations Dashboard</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Entity Selection Buttons -->
+            <div class="entity-selector">
+                <button class="btn-entity active" onclick="selectEntity(event, 'admin')">Admin</button>
+                <button class="btn-entity" onclick="selectEntity(event, 'student')">Student</button>
+                <button class="btn-entity" onclick="selectEntity(event, 'college')">College</button>
+                <button class="btn-entity" onclick="selectEntity(event, 'placement')">Placement</button>
+                <button class="btn-entity" onclick="selectEntity(event, 'certificate')">Certificate</button>
+                <button class="btn-entity" onclick="selectEntity(event, 'users')">Users</button>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content">
+                <!-- Create Form Section -->
+                <div class="form-section">
+                    <h2>➕ Create New Record</h2>
+                    <form id="createForm" onsubmit="handleCreate(event)">
+                        <div id="formFields"></div>
+                        <button type="submit" class="btn-primary">Add Record</button>
+                    </form>
+                </div>
+
+                <!-- Records Display Section -->
+                <div class="table-section">
+                    <div class="section-header">
+                        <h2>📋 All Records</h2>
+                        <button class="btn-secondary" onclick="loadRecords()">🔄 Refresh</button>
+                    </div>
+                    <div id="records" class="records-container">
+                        <p class="loading">Loading records...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Message -->
+            <div id="message" class="message"></div>
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <p><strong>ℹ️ Info:</strong> Select an entity above to view, create, update, or delete records. All changes are saved to PostgreSQL database.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+PLACEMENT MANAGEMENT SYSTEM - SETUP GUIDE
+
+1. PREREQUISITES
+----------------
+- Java JDK 21 or higher
+- PostgreSQL Server (v14 or higher recommended)
+
+2. DATABASE SETUP
+-----------------
+1. Install PostgreSQL.
+2. Open pgAdmin or SQL Shell (psql).
+3. The application uses the default 'postgres' database.
+4. Set the password for user 'postgres' to '123'.
+   Command (SQL Shell): 
+   ALTER USER postgres WITH PASSWORD '123';
+
+3. INSTALLATION
+---------------
+1. Download or clone the project folder.
+2. Open a terminal (Command Prompt or PowerShell) in the project root folder.
+
+4. RUNNING THE APPLICATION
+--------------------------
+Option A: Using Maven Wrapper (Recommended)
+   Run: ./mvnw spring-boot:run
+
+Option B: Build and Run JAR
+   1. Build: ./mvnw clean package -DskipTests
+   2. Run:   java -jar target/placementmanagment-0.0.1-SNAPSHOT.jar
+
+5. ACCESS THE APP
+-----------------
+- Frontend/API: http://localhost:8080
+- API Endpoint Example: http://localhost:8080/api/admin
+
+6. TROUBLESHOOTING
+------------------
+- If "Connection refused": Ensure PostgreSQL service is running.
+- If "Port 8080 in use": Stop other java processes or change port in application.properties.

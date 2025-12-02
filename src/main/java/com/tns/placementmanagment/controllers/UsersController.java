@@ -12,6 +12,11 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class UsersController {
 
+    /**
+     * Users REST controller (concise flow):
+     * - Receives HTTP requests for /api/users and delegates to UsersService
+     */
+
     @Autowired
     public UsersService usersService;
 

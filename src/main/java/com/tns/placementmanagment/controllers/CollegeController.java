@@ -12,6 +12,11 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class CollegeController {
 
+    /**
+     * College REST controller (concise flow):
+     * - Receives HTTP requests for /api/college and delegates to CollegeService
+     */
+
     @Autowired
     public CollegeService collegeService;
 

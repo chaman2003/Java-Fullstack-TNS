@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Long> {
+    // Returns IDs ordered ascending. Service uses this for gap-free ID logic.
     @Query("SELECT u.id FROM Users u ORDER BY u.id")
     List<Long> findAllIds();
 }

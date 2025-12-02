@@ -12,6 +12,11 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class AdminController {
 
+    /**
+     * Admin REST controller (concise flow):
+     * - Receives HTTP requests for /api/admin and delegates to AdminService
+     */
+
     @Autowired
     public AdminService adminService;
 

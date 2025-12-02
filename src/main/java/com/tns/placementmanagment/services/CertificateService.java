@@ -4,6 +4,8 @@ import com.tns.placementmanagment.entities.Certificate;
 
 import java.util.List;
 
+// Service interface
+
 public interface CertificateService {
     Certificate createCertificate(Certificate certificate);
     List<Certificate> getCertificate();

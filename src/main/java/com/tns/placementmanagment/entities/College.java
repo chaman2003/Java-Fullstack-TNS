@@ -1,8 +1,11 @@
 package com.tns.placementmanagment.entities;
 
 import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * College entity.
+ * Flow (concise): Frontend -> Controller -> Service -> Repository -> PostgreSQL
+ */
 @Entity
 @Table(name = "college")
 public class College {

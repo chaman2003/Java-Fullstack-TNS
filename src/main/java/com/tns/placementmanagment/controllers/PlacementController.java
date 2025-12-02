@@ -12,6 +12,11 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class PlacementController {
 
+    /**
+     * Placement REST controller (concise flow):
+     * - Receives HTTP requests for /api/placement and delegates to PlacementService
+     */
+
     @Autowired
     public PlacementService placementService;
 

@@ -1,8 +1,12 @@
 package com.tns.placementmanagment.entities;
 
 import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Student entity.
+ * Flow (concise): Frontend -> Controller -> Service -> Repository -> PostgreSQL
+ * - ID field: `sid` (service assigns gap-free IDs for students)
+ */
 @Entity
 @Table(name = "student")
 public class Student {

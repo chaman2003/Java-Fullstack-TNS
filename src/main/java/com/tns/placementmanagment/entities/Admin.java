@@ -1,8 +1,13 @@
 package com.tns.placementmanagment.entities;
 
 import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Admin entity.
+ * Flow (concise): Frontend -> Controller -> Service -> Repository -> PostgreSQL
+ * - create: Service assigns a gap-free ID using repository.findAllIds()
+ * - update: Service validates existence with existsById(id) before saving
+ */
 @Entity
 @Table(name = "admin")
 public class Admin {

@@ -42,7 +42,8 @@ CREATE TABLE placement (
 CREATE TABLE certificate (
     id SERIAL PRIMARY KEY,
     year INTEGER,
-    college VARCHAR(255)
+    college VARCHAR(255),
+    qualification VARCHAR(255)
 );
 
 -- Users table
@@ -74,10 +75,10 @@ INSERT INTO placement (name, qualification, year) VALUES
     ('Microsoft', 'B.Tech IT', 2024),
     ('Amazon', 'B.Tech CS', 2023);
 
-INSERT INTO certificate (year, college) VALUES 
-    (2024, 'MIT'),
-    (2024, 'Stanford'),
-    (2023, 'Harvard');
+INSERT INTO certificate (year, college, qualification) VALUES 
+    (2024, 'MIT', 'Machine Learning Nanodegree'),
+    (2024, 'Stanford', 'Cloud Architecture Certification'),
+    (2023, 'Harvard', 'Cybersecurity Professional Certificate');
 
 INSERT INTO users (name, email, designation) VALUES 
     ('Admin User', 'admin@example.com', 'ADMIN'),

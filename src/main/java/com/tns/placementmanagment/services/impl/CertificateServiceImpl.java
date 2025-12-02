@@ -14,6 +14,8 @@ public class CertificateServiceImpl implements CertificateService {
     @Autowired
     public CertificateRepository certificateRepository;
 
+    // Finds the first missing positive ID (1,2,3...) by scanning ordered IDs.
+    // This enforces gap-free sequential IDs so deleted slots get reused.
     private Long findNextAvailableId() {
         List<Long> existingIds = certificateRepository.findAllIds();
         long nextId = 1;

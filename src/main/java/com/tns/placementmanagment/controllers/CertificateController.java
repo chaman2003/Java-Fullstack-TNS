@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Certificate REST controller (concise flow):
+ * - Receives HTTP requests from frontend for /api/certificate
+ * - Delegates to CertificateService for business rules (ID assignment/validation)
+ */
 @RestController
 @RequestMapping(path = "/api/certificate")
 @CrossOrigin(origins = "*")

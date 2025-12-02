@@ -1,3 +1,10 @@
+/*
+    Certificate flow (concise, inline):
+    - Frontend posts/puts JSON to `/api/certificate` including `qualification`.
+    - Controller forwards request to Service.
+    - Service enforces gap-free ID assignment for create and validates on update.
+    - Repository persists to PostgreSQL (uses findAllIds() for ID logic).
+*/
 let currentEntity = 'admin';
 const apiUrl = 'http://localhost:8080/api';
 
@@ -23,7 +30,8 @@ const entityFields = {
     ],
     certificate: [
         { name: 'year', label: 'Year', type: 'number', required: true },
-        { name: 'college', label: 'College Name', type: 'text', required: true }
+        { name: 'college', label: 'College Name', type: 'text', required: true },
+        { name: 'qualification', label: 'Qualification', type: 'text', required: true }
     ],
     users: [
         { name: 'name', label: 'Full Name', type: 'text', required: true },
